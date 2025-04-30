@@ -1,0 +1,293 @@
+id: zip-backup-files-cmd
+
+info:
+  name: Compressed Backup File - Detect
+  author: toufik-airane,dwisiswant0,ffffffff0x,pwnhxl,mastercho,cihanmehmet
+  severity: medium
+  description: Multiple compressed backup files were detected.
+  classification:
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N
+    cvss-score: 5.3
+    cwe-id: CWE-200
+  metadata:
+    max-request: 1305
+  tags: exposure,backup
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/{{FILENAME}}.{{EXT}}"
+
+    attack: clusterbomb
+    payloads:
+      FILENAME:
+        - "{{FQDN}}" # www.example.com
+        - "{{RDN}}" #
+        - "{{DN}}" # example
+        - "{{SD}}" # www
+        - "{{date_time('%Y')}}" # 2023
+        - "{{Hostname}}"
+        - "{{Hostname}}_db"
+        - "1"
+        - "backup"
+        - "database"
+        - "data"
+        - "db_backup"
+        - "dbdump"
+        - "db"
+        - "dump"
+        - "localhost"
+        - "mysqldump"
+        - "mysql"
+        - "site"
+        - "sql"
+        - "temp"
+        - "translate"
+        - "users"
+        - "www"
+        - "wp-content/uploads/dump"
+        - "wp-content/mysql"
+        - "ROOT" # tomcat
+        - "wwwroot"
+        - "htdocs"
+        - "www"
+        - "html"
+        - "web"
+        - "webapps"
+        - "public"
+        - "public_html"
+        - "uploads"
+        - "website"
+        - "api"
+        - "test"
+        - "app"
+        - "backup"
+        - "backup_1"
+        - "backup_2"
+        - "backup_3"
+        - "backup_4"
+        - "backups"
+        - "bin"
+        - "temp"
+        - "bak"
+        - "db"
+        - "sql"
+        - "dump"
+        - "database"
+        - "Release"
+        - "inetpub"
+        - "package"
+        - "tmp"
+        - "db"
+        - "data"
+        - "ftp"
+        - "output"
+        - "admin"
+        - "upload"
+        - "src"
+        - "conf/conf"
+        - "old"
+        - "root"
+        - "admin"
+        - "admin"
+        - "WEB-INF"
+        - "web.config"
+        - "acces"
+        - "config"
+        - "env"
+        - "backup"
+
+      EXT:
+         - "tar"
+         - "7z"
+         - "bz2"
+         - "gz"
+         - "lz"
+         - "rar"
+         - "tar.gz"
+         - "tar.bz2"
+         - "xz"
+         - "zip"
+         - "z"
+         - "Z"
+         - "tar.z"
+         - "tgz"
+         - "db"
+         - "jar"
+         - "sql"
+         - "sqlite"
+         - "sqlitedb"
+         - "sql.7z"
+         - "sql.bz2"
+         - "sql.gz"
+         - "sql.lz"
+         - "sql.rar"
+         - "sql.tar.gz"
+         - "sql.xz"
+         - "sql.zip"
+         - "sql.z"
+         - "sql.tar.z"
+         - "war"
+         - "bak"
+         - "temp"
+         - "log"
+         - "lst"
+         - "conf"
+         - "save"
+         - "save.1"
+         - "templ"
+         - "gzip"
+         - "lzip"
+         - "bzip2"
+         - "sav"
+         - "part"
+         - "php"
+         - "backup"
+         - "%0"
+         - "%1"
+         - "%2"
+         - "%_"
+         - "%s"
+         - "%~"
+         - "%~1"
+         - "%~bk"
+         - "._%"
+         - "1"
+         - "2"
+         - "3"
+         - "action"
+         - "adr"
+         - "ascx"
+         - "asmx"
+         - "asp"
+         - "aspx"
+         - "aspx~"
+         - "asp~"
+         - "axd"
+         - "bac"
+         - "bkf"
+         - "bkp"
+         - "bok"
+         - "cache"
+         - "cfg"
+         - "cfm"
+         - "cgi"
+         - "cnf"
+         - "config"
+         - "crt"
+         - "cs"
+         - "csproj"
+         - "csr"
+         - "csv"
+         - "dat"
+         - "db.gz"
+         - "db.tar"
+         - "dif"
+         - "dist"
+         - "doc"
+         - "docx"
+         - "eml"
+         - "env"
+         - "err"
+         - "exe"
+         - "html"
+         - "ica"
+         - "inc"
+         - "inf"
+         - "ini"
+         - "java"
+         - "js"
+         - "json"
+         - "jsp"
+         - "jsp~"
+         - "key"
+         - "lock"
+         - "mai"
+         - "map"
+         - "mbox"
+         - "mbx"
+         - "md"
+         - "mdb"
+         - "nsf"
+         - "old"
+         - "ora"
+         - "orig"
+         - "pac"
+         - "passwd"
+         - "pcf"
+         - "pdf"
+         - "pem"
+         - "pgp"
+         - "php~"
+         - "pl"
+         - "plist"
+         - "pwd"
+         - "py"
+         - "py~"
+         - "rb"
+         - "rb~"
+         - "rdp"
+         - "reg"
+         - "rej"
+         - "rtf"
+         - "sass-cache"
+         - "skr"
+         - "sql.tgz"
+         - "sql~"
+         - "sublime-project"
+         - "sublime-workspace"
+         - "swf"
+         - "swm"
+         - "swn"
+         - "swo"
+         - "swp"
+         - "swp~"
+         - "tmp"
+         - "tpl"
+         - "txt"
+         - "un~"
+         - "url"
+         - "vb"
+         - "vbproj"
+         - "vi"
+         - "wadl"
+         - "wml"
+         - "xls"
+         - "xlsx"
+         - "xml"
+         - "xsd"
+         - "yml"
+         - "zip~"
+
+
+    max-size: 500 # Size in bytes - Max Size to read from server response
+
+    matchers-condition: and
+    matchers:
+      - type: binary
+        binary:
+          - "7573746172202000" # tar
+          - "7573746172003030" # tar
+          - "377ABCAF271C" # 7z
+          - "314159265359" # bz2
+          - "53514c69746520666f726d6174203300" # SQLite format 3.
+          - "1f8b" # gz tar.gz
+          - "526172211A0700" # rar RAR archive version 1.50
+          - "526172211A070100" # rar RAR archive version 5.0
+          - "FD377A585A0000" # xz tar.xz
+          - "1F9D" # z tar.z
+          - "1FA0" # z tar.z
+          - "4C5A4950" # lz
+          - "504B0304" # zip
+        condition: or
+        part: body
+
+      - type: regex
+        regex:
+          - "application/[-\\w.]+"
+        part: header
+
+      - type: status
+        status:
+          - 200
+# digest: 4b0a004830460221008dff6ba959855da5423f8e72fa2def28b599f5a60f18c9965dfd267dba796acb022100a16ecc27c48a4768543d81c790157df741a714d8934ce71ccce47b5aa465f6ab:922c64590222798bb761d5b6d8e72950
